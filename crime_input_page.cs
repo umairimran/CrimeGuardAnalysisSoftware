@@ -74,7 +74,7 @@ namespace crime_trend_project_winforms_latest
                 // Perform query to fetch latitude and longitude from your database based on district or division
                 // Example query: SELECT Latitude, Longitude FROM CityCoordinates WHERE City = @City
                 // Replace CityCoordinates with your actual table name and City with the column name for city or division
-                connectionString = "Data Source=C:\\Users\\LENOVO\\source\\repos\\WindowsFormsApp2\\crime_db.db;Version=3;";
+                connectionString = "Data Source=C:\\Users\\LENOVO\\source\\repos\\CrimeGuardAnalysisSoftware\\crime_db.db;Version=3;";
                 string sqlQuery = "SELECT Latitude, Longitude FROM crime_data WHERE district = @City ";  // Modify query as needed
                 using (SQLiteConnection connection = new SQLiteConnection(connectionString))
                 {
@@ -94,7 +94,7 @@ namespace crime_trend_project_winforms_latest
                 }
             }
 
-            connectionString = "Data Source=C:\\Users\\LENOVO\\source\\repos\\WindowsFormsApp2\\crime_db.db;Version=3;";
+            connectionString = "Data Source=C:\\Users\\LENOVO\\source\\repos\\CrimeGuardAnalysisSoftware\\crime_db.db;Version=3;";
             string sqlInsert = "INSERT INTO crime_data (Year, Division, District, CrimeType, CrimeCount, Population, Weapon, Time, [Day/Night], Victim_Sex, Latitude, Longitude, age_group) VALUES (@Year, @Division, @District, @CrimeType, NULL, NULL, @Weapon, @Time, NULL, @Gender, @Latitude, @Longitude, @AgeGroup)";
 
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
