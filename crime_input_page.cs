@@ -16,7 +16,18 @@ namespace crime_trend_project_winforms_latest
         public crime_input_page()
         {
             InitializeComponent();
+
+            // Set border style (e.g., for draggability)
+            this.FormBorderStyle = FormBorderStyle.Sizable;
+
         }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form1 f = new Form1();
+            f.Show();
+        }
+
 
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -64,69 +75,87 @@ namespace crime_trend_project_winforms_latest
             string age_group = age_selection_box.SelectedItem?.ToString();
             string time = time_selection_box.SelectedItem?.ToString();
             string crime_type = crime_type_selction_box.SelectedItem?.ToString();
-
-            // Fetch latitude and longitude based on the provided district or division
-            double latitude = 0.0;  // Initialize with default value
-            double longitude = 0.0;  // Initialize with default value
-            string connectionString = "";
-            if (!string.IsNullOrEmpty(district) || !string.IsNullOrEmpty(division))
+            if (district == null || division == null || year == null || weapon == null || gender == null || age_group == null || time == null || crime_type == null)
             {
-                // Perform query to fetch latitude and longitude from your database based on district or division
-                // Example query: SELECT Latitude, Longitude FROM CityCoordinates WHERE City = @City
-                // Replace CityCoordinates with your actual table name and City with the column name for city or division
-                connectionString = "Data Source=C:\\Users\\LENOVO\\source\\repos\\CrimeGuardAnalysisSoftware\\crime_db.db;Version=3;";
-                string sqlQuery = "SELECT Latitude, Longitude FROM crime_data WHERE district = @City ";  // Modify query as needed
-                using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+                MessageBox.Show("Enter Again");
+            }
+            else
+            {
+                // Fetch latitude and longitude based on the provided district or division
+                double latitude = 0.0;  // Initialize with default value
+                double longitude = 0.0;  // Initialize with default value
+                string connectionString = "";
+                if (!string.IsNullOrEmpty(district) || !string.IsNullOrEmpty(division))
                 {
-                    connection.Open();
-                    using (SQLiteCommand command = new SQLiteCommand(sqlQuery, connection))
+                    // Perform query to fetch latitude and longitude from your database based on district or division
+                    // Example query: SELECT Latitude, Longitude FROM CityCoordinates WHERE City = @City
+                    // Replace CityCoordinates with your actual table name and City with the column name for city or division
+                    connectionString = "Data Source=C:\\Users\\LENOVO\\source\\repos\\CrimeGuardAnalysisSoftware\\crime_db.db;Version=3;";
+                    string sqlQuery = "SELECT Latitude, Longitude FROM crime_data WHERE district = @City ";  // Modify query as needed
+                    using (SQLiteConnection connection = new SQLiteConnection(connectionString))
                     {
-                        command.Parameters.AddWithValue("@City", !string.IsNullOrEmpty(district) ? district : division);
-                        using (SQLiteDataReader reader = command.ExecuteReader())
+                        connection.Open();
+                        using (SQLiteCommand command = new SQLiteCommand(sqlQuery, connection))
                         {
-                            if (reader.Read())
+                            command.Parameters.AddWithValue("@City", !string.IsNullOrEmpty(district) ? district : division);
+                            using (SQLiteDataReader reader = command.ExecuteReader())
                             {
-                                latitude = Convert.ToDouble(reader["Latitude"]);
-                                longitude = Convert.ToDouble(reader["Longitude"]);
+                                if (reader.Read())
+                                {
+                                    latitude = Convert.ToDouble(reader["Latitude"]);
+                                    longitude = Convert.ToDouble(reader["Longitude"]);
+                                }
                             }
                         }
                     }
                 }
-            }
 
-            connectionString = "Data Source=C:\\Users\\LENOVO\\source\\repos\\CrimeGuardAnalysisSoftware\\crime_db.db;Version=3;";
-            string sqlInsert = "INSERT INTO crime_data (Year, Division, District, CrimeType, CrimeCount, Population, Weapon, Time, [Day/Night], Victim_Sex, Latitude, Longitude, age_group) VALUES (@Year, @Division, @District, @CrimeType, NULL, NULL, @Weapon, @Time, NULL, @Gender, @Latitude, @Longitude, @AgeGroup)";
+                connectionString = "Data Source=C:\\Users\\LENOVO\\source\\repos\\CrimeGuardAnalysisSoftware\\crime_db.db;Version=3;";
+                string sqlInsert = "INSERT INTO crime_data (Year, Division, District, CrimeType, CrimeCount, Population, Weapon, Time, [Day/Night], Victim_Sex, Latitude, Longitude, age_group) VALUES (@Year, @Division, @District, @CrimeType, NULL, NULL, @Weapon, @Time, NULL, @Gender, @Latitude, @Longitude, @AgeGroup)";
 
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
-            {
-                using (SQLiteCommand command = new SQLiteCommand(sqlInsert, connection))
+                using (SQLiteConnection connection = new SQLiteConnection(connectionString))
                 {
-                    // Add parameters to the command
-                    command.Parameters.AddWithValue("@District", string.IsNullOrEmpty(district) ? DBNull.Value : (object)district);
-                    command.Parameters.AddWithValue("@Division", string.IsNullOrEmpty(division) ? DBNull.Value : (object)division);
-                    command.Parameters.AddWithValue("@Year", year);
-                    command.Parameters.AddWithValue("@Weapon", string.IsNullOrEmpty(weapon) ? DBNull.Value : (object)weapon);
-                    command.Parameters.AddWithValue("@Gender", string.IsNullOrEmpty(gender) ? DBNull.Value : (object)gender);
-                    command.Parameters.AddWithValue("@AgeGroup", string.IsNullOrEmpty(age_group) ? DBNull.Value : (object)age_group);
-                    command.Parameters.AddWithValue("@Time", string.IsNullOrEmpty(time) ? DBNull.Value : (object)time);
-                    command.Parameters.AddWithValue("@CrimeType", string.IsNullOrEmpty(crime_type) ? DBNull.Value : (object)crime_type);
-                    command.Parameters.AddWithValue("@Latitude", latitude);
-                    command.Parameters.AddWithValue("@Longitude", longitude);
+                    using (SQLiteCommand command = new SQLiteCommand(sqlInsert, connection))
+                    {
+                        // Add parameters to the command
+                        command.Parameters.AddWithValue("@District", string.IsNullOrEmpty(district) ? DBNull.Value : (object)district);
+                        command.Parameters.AddWithValue("@Division", string.IsNullOrEmpty(division) ? DBNull.Value : (object)division);
+                        command.Parameters.AddWithValue("@Year", year);
+                        command.Parameters.AddWithValue("@Weapon", string.IsNullOrEmpty(weapon) ? DBNull.Value : (object)weapon);
+                        command.Parameters.AddWithValue("@Gender", string.IsNullOrEmpty(gender) ? DBNull.Value : (object)gender);
+                        command.Parameters.AddWithValue("@AgeGroup", string.IsNullOrEmpty(age_group) ? DBNull.Value : (object)age_group);
+                        command.Parameters.AddWithValue("@Time", string.IsNullOrEmpty(time) ? DBNull.Value : (object)time);
+                        command.Parameters.AddWithValue("@CrimeType", string.IsNullOrEmpty(crime_type) ? DBNull.Value : (object)crime_type);
+                        command.Parameters.AddWithValue("@Latitude", latitude);
+                        command.Parameters.AddWithValue("@Longitude", longitude);
 
-                    // Open the connection
-                    connection.Open();
+                        // Open the connection
+                        connection.Open();
 
-                    // Execute the command
-                    command.ExecuteNonQuery();
+                        // Execute the command
+                        command.ExecuteNonQuery();
+                    }
                 }
-            }
 
-            MessageBox.Show("Value inserted successfully!");
+                MessageBox.Show("Value inserted successfully!");
+            }
         }
 
         private void division_selection_box_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void richTextBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            Form1 f = new Form1();
+
+        }
+
     }
 }

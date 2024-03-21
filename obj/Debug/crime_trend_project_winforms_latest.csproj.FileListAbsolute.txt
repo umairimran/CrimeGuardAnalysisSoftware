@@ -54,3 +54,8 @@ C:\Users\LENOVO\source\repos\CrimeGuardAnalysisSoftware\bin\Debug\LiveCharts.Wpf
 C:\Users\LENOVO\source\repos\CrimeGuardAnalysisSoftware\bin\Debug\LiveCharts.Wpf.xml
 C:\Users\LENOVO\source\repos\CrimeGuardAnalysisSoftware\bin\Debug\System.Data.SQLite.xml
 C:\Users\LENOVO\source\repos\CrimeGuardAnalysisSoftware\obj\Debug\crime_trend_project_winforms_latest.csproj.CopyComplete
+C:\Users\LENOVO\source\repos\CrimeGuardAnalysisSoftware\obj\Debug\crime_trend_project_winforms_latest.UserControl1.resources
+C:\Users\LENOVO\source\repos\CrimeGuardAnalysisSoftware\obj\Debug\crime_trend_project_winforms_latest.crime_prediction.resources
+C:\Users\LENOVO\source\repos\CrimeGuardAnalysisSoftware\bin\Debug\Newtonsoft.Json.dll
+C:\Users\LENOVO\source\repos\CrimeGuardAnalysisSoftware\bin\Debug\Newtonsoft.Json.xml
+C:\Users\LENOVO\source\repos\CrimeGuardAnalysisSoftware\obj\Debug\crime_trend_project_winforms_latest.dashboard.resources

@@ -183,5 +183,12 @@ namespace crime_trend_project_winforms_latest
         {
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Form1 f = new Form1();
+            this.Close();
+            f.Show();
+        }
     }
 }

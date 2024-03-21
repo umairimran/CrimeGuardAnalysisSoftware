@@ -25,14 +25,37 @@ namespace crime_trend_project_winforms_latest
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
             crime_input_page c = new crime_input_page();
             c.Show();
+            
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            geomap g=new geomap();
+            search_data_in_database g=new search_data_in_database();
             g.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new crime_prediction().Show();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Controls.Clear();
+            crime_trend_page frmFb = new crime_trend_page() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            frmFb.FormBorderStyle = FormBorderStyle.None;
+            this.Controls.Add(frmFb);
+            frmFb.Show();
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            new crime_prediction().Show();
         }
     }
 }

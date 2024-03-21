@@ -47,12 +47,15 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.district_selection_box = new System.Windows.Forms.ComboBox();
             this.date_selection_box = new System.Windows.Forms.DateTimePicker();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(68)))), ((int)(((byte)(73)))));
+            this.panel1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.crime_type_selction_box);
             this.panel1.Controls.Add(this.box);
             this.panel1.Controls.Add(this.gender_selection_box);
@@ -71,11 +74,12 @@
             this.panel1.Controls.Add(this.richTextBox1);
             this.panel1.Controls.Add(this.district_selection_box);
             this.panel1.Controls.Add(this.date_selection_box);
-            this.panel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(49, 23);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1236, 595);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // crime_type_selction_box
             // 
@@ -104,7 +108,7 @@
             // 
             // box
             // 
-            this.box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(68)))), ((int)(((byte)(73)))));
+            this.box.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.box.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.box.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.box.ForeColor = System.Drawing.Color.White;
@@ -192,7 +196,7 @@
             // 
             // richTextBox6
             // 
-            this.richTextBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(68)))), ((int)(((byte)(73)))));
+            this.richTextBox6.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.richTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox6.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox6.ForeColor = System.Drawing.Color.White;
@@ -205,7 +209,7 @@
             // 
             // richTextBox5
             // 
-            this.richTextBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(68)))), ((int)(((byte)(73)))));
+            this.richTextBox5.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.richTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox5.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox5.ForeColor = System.Drawing.Color.White;
@@ -218,7 +222,7 @@
             // 
             // richTextBox2
             // 
-            this.richTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(68)))), ((int)(((byte)(73)))));
+            this.richTextBox2.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox2.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox2.ForeColor = System.Drawing.Color.White;
@@ -231,7 +235,7 @@
             // 
             // richTextBox7
             // 
-            this.richTextBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(68)))), ((int)(((byte)(73)))));
+            this.richTextBox7.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.richTextBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox7.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox7.ForeColor = System.Drawing.Color.White;
@@ -244,7 +248,7 @@
             // 
             // richTextBox4
             // 
-            this.richTextBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(68)))), ((int)(((byte)(73)))));
+            this.richTextBox4.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.richTextBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox4.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox4.ForeColor = System.Drawing.Color.White;
@@ -258,7 +262,7 @@
             // 
             // richTextBox9
             // 
-            this.richTextBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(68)))), ((int)(((byte)(73)))));
+            this.richTextBox9.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.richTextBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox9.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox9.ForeColor = System.Drawing.Color.White;
@@ -271,19 +275,20 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.DarkBlue;
             this.button1.Font = new System.Drawing.Font("Arial Black", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(246, 486);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(801, 75);
             this.button1.TabIndex = 18;
             this.button1.Text = "Submit";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // richTextBox3
             // 
-            this.richTextBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(68)))), ((int)(((byte)(73)))));
+            this.richTextBox3.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox3.Font = new System.Drawing.Font("Arial Black", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox3.ForeColor = System.Drawing.Color.White;
@@ -293,10 +298,11 @@
             this.richTextBox3.Size = new System.Drawing.Size(273, 52);
             this.richTextBox3.TabIndex = 10;
             this.richTextBox3.Text = "Select Division";
+            this.richTextBox3.TextChanged += new System.EventHandler(this.richTextBox3_TextChanged);
             // 
             // richTextBox1
             // 
-            this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(68)))), ((int)(((byte)(73)))));
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox1.Font = new System.Drawing.Font("Arial Black", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.ForeColor = System.Drawing.Color.White;
@@ -365,16 +371,29 @@
             this.date_selection_box.TabIndex = 0;
             this.date_selection_box.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.pictureBox1.Image = global::crime_trend_project_winforms_latest.Properties.Resources.backwards;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(67, 51);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 34;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // crime_input_page
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(35)))), ((int)(((byte)(46)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(43)))), ((int)(((byte)(43)))));
             this.ClientSize = new System.Drawing.Size(1324, 661);
             this.Controls.Add(this.panel1);
             this.Name = "crime_input_page";
             this.Text = "crime_input_page";
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -400,5 +419,6 @@
         private System.Windows.Forms.ComboBox age_selection_box;
         private System.Windows.Forms.ComboBox crime_type_selction_box;
         private System.Windows.Forms.RichTextBox box;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
