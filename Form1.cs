@@ -57,5 +57,11 @@ namespace crime_trend_project_winforms_latest
         {
             new crime_prediction().Show();
         }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            crime_trend_page p = new crime_trend_page();
+            p.Show();
+        }
     }
 }
